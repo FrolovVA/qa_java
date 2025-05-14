@@ -6,7 +6,7 @@ public class Feline extends Animal implements Predator {
 
     @Override
     public List<String> eatMeat() throws Exception {
-        return this.getFood("Хищник");
+        return getFood("Хищник");
     }
 
     @Override
