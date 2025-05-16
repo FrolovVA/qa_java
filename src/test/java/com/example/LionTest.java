@@ -18,22 +18,23 @@ public class LionTest extends TestCase {
 
     @Before
     public void init() throws Exception {
-        lion = new Lion("Самец");//временно
+        lion = new Lion("Самец", feline);
     }
 
     @Mock
     Feline feline;
 
     @Test
-    public void shouldReturnNumberOfKittens1_GetKittens() {
+    public void testShouldReturnNumberOfKittens1_GetKittens() {
         Mockito.when(feline.getKittens()).thenReturn(1);
-        Assert.assertEquals(1, lion.getKittens(feline));
+        Assert.assertEquals("Должен вернуться результат метода getKittens объекта feline класса Feline",
+                1, lion.getKittens());
     }
 
-
     @Test
-    public void testGetFood() throws Exception {
+    public void testShouldReturnListGetFood() throws Exception {
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood(feline));
+        Assert.assertEquals("Должен возвращаться лист соответствующий типу животного - Хищник",
+                List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 }

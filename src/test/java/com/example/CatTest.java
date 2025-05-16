@@ -5,8 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -21,18 +21,17 @@ public class CatTest extends TestCase {
         cat = new Cat(feline);
     }
 
-    @Spy
+    @Mock
     Feline feline;
 
 
     @Test
-    public void shouldReturnStr_GetSound() {
+    public void testShouldReturnStr_GetSound() {
         Assert.assertEquals("Мяу", cat.getSound());
     }
 
-
     @Test
-    public void shouldReturnPredatorFoodList_GetFood() throws Exception {
+    public void testShouldReturnPredatorFoodList_GetFood() throws Exception {
         Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
