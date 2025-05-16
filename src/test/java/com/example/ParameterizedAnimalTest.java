@@ -38,7 +38,8 @@ public class ParameterizedAnimalTest {
     @Test
     public void testShouldReturnListOfFood_GetFood() throws Exception {
         try {
-            Assert.assertEquals(animalFoodExample, animal.getFood(animalKind));
+            List<String> animalFood = animal.getFood(animalKind);
+            Assert.assertEquals(animalFoodExample, animalFood);
         }catch (Exception exception){
             Assert.assertTrue(true);
         }

@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.List;
+
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest extends TestCase {
 
@@ -24,8 +26,7 @@ public class FelineTest extends TestCase {
 
     @Test
     public void testShouldUseGetFood_EatMeat() throws Exception {
-        spyFeline.eatMeat();
-        Mockito.verify(spyFeline, Mockito.times(1)).getFood("Хищник");
+        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
     }
 
     @Test
