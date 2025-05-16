@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -15,9 +13,6 @@ import java.util.List;
 public class FelineTest extends TestCase {
 
     private Feline feline;
-
-    @Spy
-    Feline spyFeline;
 
     @Before
     public void setUp() {
@@ -36,8 +31,7 @@ public class FelineTest extends TestCase {
 
     @Test
     public void testShouldUseGetKittensWithParam1_GetKittens() {
-        spyFeline.getKittens();
-        Mockito.verify(spyFeline, Mockito.times(1)).getKittens(1);
+        Assert.assertEquals(1, feline.getKittens());
     }
 
     @Test
