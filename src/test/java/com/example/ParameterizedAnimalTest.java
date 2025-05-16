@@ -24,8 +24,7 @@ public class ParameterizedAnimalTest {
     public static Object[][] data(){
         return new Object[][]{
                 {"Травоядное", List.of("Трава", "Различные растения")},
-                {"Хищник", List.of("Животные", "Птицы", "Рыба")},
-                {"Самолет", null}
+                {"Хищник", List.of("Животные", "Птицы", "Рыба")}
         };
     }
 
@@ -37,11 +36,8 @@ public class ParameterizedAnimalTest {
 
     @Test
     public void testShouldReturnListOfFood_GetFood() throws Exception {
-        try {
-            List<String> animalFood = animal.getFood(animalKind);
-            Assert.assertEquals(animalFoodExample, animalFood);
-        }catch (Exception exception){
-            Assert.assertTrue(true);
-        }
+        List<String> animalFood = animal.getFood(animalKind);
+        Assert.assertEquals("Список еды должен соответствовать типу животного",animalFoodExample, animalFood);
+
     }
 }

@@ -18,4 +18,13 @@ public class AnimalTest {
         String animalFamilyStr = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
         Assert.assertTrue(animalFamilyStr.equals(animal.getFamily()));
     }
+
+    @Test
+    public void testThrowsExceptions_GetFood() {
+        Exception exception = Assert.assertThrows(Exception.class, () -> {
+            animal.getFood("Неизвестный");
+        });
+        Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
+    }
+
 }
